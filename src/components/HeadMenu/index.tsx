@@ -1,5 +1,5 @@
 import { GET_HERO_HEADER } from '@/graphql/hero-header'
-import createApolloClient from '@/lib/apolloClient'
+import { createApolloClient } from '@/lib/apolloClient'
 import { HeroHeaderData } from '@/types/heroHeaderType'
 import { useEffect, useState } from 'react'
 

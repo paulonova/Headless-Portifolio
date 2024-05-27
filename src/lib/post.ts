@@ -1,5 +1,5 @@
-import { gql } from "@apollo/client";
-import { apolloClient } from "./apolloClient";
+import { gql } from '@apollo/client'
+import { createApolloClient } from './apolloClient'
 
 export const GET_POSTS = gql`
   query GetPosts {
@@ -11,15 +11,16 @@ export const GET_POSTS = gql`
       }
     }
   }
-`;
+`
 
 export interface Post {
-  id: string;
-  title: string;
-  content: string;
+  id: string
+  title: string
+  content: string
 }
 
 export const fetchPosts = async () => {
-  const { data } = await apolloClient.query({ query: GET_POSTS });
-  return data.posts.nodes as Post[];
-};
+  const apolloClient = createApolloClient()
+  const { data } = await apolloClient.query({ query: GET_POSTS })
+  return data.posts.nodes as Post[]
+}
